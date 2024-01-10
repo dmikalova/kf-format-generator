@@ -503,7 +503,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@npmcli/config@npm:^8.0.1":
+"@npmcli/config@npm:^8.0.2":
   version: 8.0.3
   resolution: "@npmcli/config@npm:8.0.3"
   dependencies:
@@ -915,19 +915,19 @@ __metadata:
   linkType: hard
 
 "@oclif/plugin-plugins@npm:^4":
-  version: 4.1.10
-  resolution: "@oclif/plugin-plugins@npm:4.1.10"
+  version: 4.1.15
+  resolution: "@oclif/plugin-plugins@npm:4.1.15"
   dependencies:
     "@oclif/core": "npm:^3.10.2"
     chalk: "npm:^5.3.0"
     debug: "npm:^4.3.4"
-    npm: "npm:10.2.3"
+    npm: "npm:10.2.5"
     npm-run-path: "npm:^4.0.1"
     semver: "npm:^7.5.4"
     shelljs: "npm:^0.8.5"
     validate-npm-package-name: "npm:^5.0.0"
     yarn: "npm:^1.22.21"
-  checksum: a33f0218fd447ace247e7a997d9330ce79cb95587f79dcf85607ac8d092757838ca83d7ed0b41e3fef801c02eab2785f5c6bb85b25e79cf01172a8ca68ab22da
+  checksum: 4baf6fc93cada0753dc5f59fb94cba0a67be2143e2d597b373ff321d3bd8e16c1ad492d26f5050c1cbb36614c344e5d46d3d41fef977ae03ef1bb52df5fb6645
   languageName: node
   linkType: hard
 
@@ -1171,7 +1171,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sigstore/tuf@npm:^2.1.0":
+"@sigstore/tuf@npm:^2.1.0, @sigstore/tuf@npm:^2.2.0":
   version: 2.2.0
   resolution: "@sigstore/tuf@npm:2.2.0"
   dependencies:
@@ -2430,6 +2430,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"cacache@npm:^18.0.1":
+  version: 18.0.2
+  resolution: "cacache@npm:18.0.2"
+  dependencies:
+    "@npmcli/fs": "npm:^3.1.0"
+    fs-minipass: "npm:^3.0.0"
+    glob: "npm:^10.2.2"
+    lru-cache: "npm:^10.0.1"
+    minipass: "npm:^7.0.3"
+    minipass-collect: "npm:^2.0.1"
+    minipass-flush: "npm:^1.0.5"
+    minipass-pipeline: "npm:^1.2.4"
+    p-map: "npm:^4.0.0"
+    ssri: "npm:^10.0.0"
+    tar: "npm:^6.1.11"
+    unique-filename: "npm:^3.0.0"
+  checksum: 7992665305cc251a984f4fdbab1449d50e88c635bc43bf2785530c61d239c61b349e5734461baa461caaee65f040ab14e2d58e694f479c0810cffd181ba5eabc
+  languageName: node
+  linkType: hard
+
 "cacheable-lookup@npm:^5.0.3":
   version: 5.0.4
   resolution: "cacheable-lookup@npm:5.0.4"
@@ -2633,7 +2653,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ci-info@npm:^3.8.0, ci-info@npm:^3.9.0":
+"ci-info@npm:^3.8.0":
   version: 3.9.0
   resolution: "ci-info@npm:3.9.0"
   checksum: 6f0109e36e111684291d46123d491bc4e7b7a1934c3a20dea28cba89f1d4a03acd892f5f6a81ed3855c38647e285a150e3c9ba062e38943bef57fee6c1554c3a
@@ -2647,12 +2667,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cidr-regex@npm:^3.1.1":
-  version: 3.1.1
-  resolution: "cidr-regex@npm:3.1.1"
+"cidr-regex@npm:4.0.3":
+  version: 4.0.3
+  resolution: "cidr-regex@npm:4.0.3"
   dependencies:
-    ip-regex: "npm:^4.1.0"
-  checksum: 3049225d23fe5b6e0e439d35f90bd344a1e0d2049f77786cc05a755d675b74f5ba8fc3420fb7de0f00892ab8b5af4540125cf46faff91074ee2488711b3a106d
+    ip-regex: "npm:^5.0.0"
+  checksum: df12a5aecbae4fbafc38ca679d7654de97f0dc9ee0759ae1da3c001fadf063cf735ef7bec49e1421319e1adcc142a6603671ee562898cf16ff4ae8e29eddeec2
   languageName: node
   linkType: hard
 
@@ -5098,10 +5118,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ip-regex@npm:^4.1.0":
-  version: 4.3.0
-  resolution: "ip-regex@npm:4.3.0"
-  checksum: f9ef1f5d0df05b9133a882974e572ae525ccd205260cb103dae337f1fc7451ed783391acc6ad688e56dd2598f769e8e72ecbb650ec34763396af822a91768562
+"ip-regex@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "ip-regex@npm:5.0.0"
+  checksum: 23f07cf393436627b3a91f7121eee5bc831522d07c95ddd13f5a6f7757698b08551480f12e5dbb3bf248724da135d54405c9687733dba7314f74efae593bdf06
   languageName: node
   linkType: hard
 
@@ -5191,12 +5211,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-cidr@npm:^4.0.2":
-  version: 4.0.2
-  resolution: "is-cidr@npm:4.0.2"
+"is-cidr@npm:^5.0.3":
+  version: 5.0.3
+  resolution: "is-cidr@npm:5.0.3"
   dependencies:
-    cidr-regex: "npm:^3.1.1"
-  checksum: 64d8e03304a8c479b338fbe4341e8a37a9dd6fa1e0e95c93e7121b64f50ef154346965779c5e3bc1460915eb04a57564909d9199adb627dc7ec1ac2cfd282f10
+    cidr-regex: "npm:4.0.3"
+  checksum: 52be23b59790e2beeacf954bf9d245c99b05c4283bf38e26da82a6c847ceb951149f524435ceda12019084f282776ba3b46e5742107482b5e510a2daeaa8f245
   languageName: node
   linkType: hard
 
@@ -5604,7 +5624,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"json-parse-even-better-errors@npm:^3.0.0":
+"json-parse-even-better-errors@npm:^3.0.0, json-parse-even-better-errors@npm:^3.0.1":
   version: 3.0.1
   resolution: "json-parse-even-better-errors@npm:3.0.1"
   checksum: bc40600b14231dff1ff911d269c7ed89fbf3dbedf25cad3f47c10ff9cbb998ce03921372a17f27f3c7cfed76e679bc6c02a7b4cb2604b0ba68cd51ed16899492
@@ -5789,7 +5809,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"libnpmexec@npm:^7.0.3":
+"libnpmexec@npm:^7.0.4":
   version: 7.0.5
   resolution: "libnpmexec@npm:7.0.5"
   dependencies:
@@ -5849,7 +5869,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"libnpmpublish@npm:^9.0.1":
+"libnpmpublish@npm:^9.0.2":
   version: 9.0.3
   resolution: "libnpmpublish@npm:9.0.3"
   dependencies:
@@ -7056,24 +7076,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"npm@npm:10.2.3":
-  version: 10.2.3
-  resolution: "npm@npm:10.2.3"
+"npm@npm:10.2.5":
+  version: 10.2.5
+  resolution: "npm@npm:10.2.5"
   dependencies:
     "@isaacs/string-locale-compare": "npm:^1.1.0"
     "@npmcli/arborist": "npm:^7.2.1"
-    "@npmcli/config": "npm:^8.0.1"
+    "@npmcli/config": "npm:^8.0.2"
     "@npmcli/fs": "npm:^3.1.0"
     "@npmcli/map-workspaces": "npm:^3.0.4"
     "@npmcli/package-json": "npm:^5.0.0"
     "@npmcli/promise-spawn": "npm:^7.0.0"
     "@npmcli/run-script": "npm:^7.0.2"
-    "@sigstore/tuf": "npm:^2.1.0"
+    "@sigstore/tuf": "npm:^2.2.0"
     abbrev: "npm:^2.0.0"
     archy: "npm:~1.0.0"
-    cacache: "npm:^18.0.0"
+    cacache: "npm:^18.0.1"
     chalk: "npm:^5.3.0"
-    ci-info: "npm:^3.9.0"
+    ci-info: "npm:^4.0.0"
     cli-columns: "npm:^4.0.0"
     cli-table3: "npm:^0.6.3"
     columnify: "npm:^1.6.0"
@@ -7084,16 +7104,16 @@ __metadata:
     hosted-git-info: "npm:^7.0.1"
     ini: "npm:^4.1.1"
     init-package-json: "npm:^6.0.0"
-    is-cidr: "npm:^4.0.2"
-    json-parse-even-better-errors: "npm:^3.0.0"
+    is-cidr: "npm:^5.0.3"
+    json-parse-even-better-errors: "npm:^3.0.1"
     libnpmaccess: "npm:^8.0.1"
     libnpmdiff: "npm:^6.0.3"
-    libnpmexec: "npm:^7.0.3"
+    libnpmexec: "npm:^7.0.4"
     libnpmfund: "npm:^5.0.1"
     libnpmhook: "npm:^10.0.0"
     libnpmorg: "npm:^6.0.1"
     libnpmpack: "npm:^6.0.3"
-    libnpmpublish: "npm:^9.0.1"
+    libnpmpublish: "npm:^9.0.2"
     libnpmsearch: "npm:^7.0.0"
     libnpmteam: "npm:^6.0.0"
     libnpmversion: "npm:^5.0.1"
@@ -7114,7 +7134,7 @@ __metadata:
     npm-user-validate: "npm:^2.0.0"
     npmlog: "npm:^7.0.1"
     p-map: "npm:^4.0.0"
-    pacote: "npm:^17.0.4"
+    pacote: "npm:^17.0.5"
     parse-conflict-json: "npm:^3.0.1"
     proc-log: "npm:^3.0.0"
     qrcode-terminal: "npm:^0.12.0"
@@ -7122,7 +7142,7 @@ __metadata:
     semver: "npm:^7.5.4"
     spdx-expression-parse: "npm:^3.0.1"
     ssri: "npm:^10.0.5"
-    strip-ansi: "npm:^6.0.1"
+    strip-ansi: "npm:^7.1.0"
     supports-color: "npm:^9.4.0"
     tar: "npm:^6.2.0"
     text-table: "npm:~0.2.0"
@@ -7134,7 +7154,7 @@ __metadata:
   bin:
     npm: bin/npm-cli.js
     npx: bin/npx-cli.js
-  checksum: 0e5f09122c552644a56367c317b80238631cfa7508b0ed86a848582592dc316ae10da4d26567686a7b8c1a5f39c2b7746331cee1f6b9a05feae5bd2d5846b218
+  checksum: ac248929d49730bb39297dca4cb09c5afd9cfe1661365a696baf3fa7451897e9e6a65b251dc7da0f77785f4220bf5e72504d63e97927c530437303377dbd0aa9
   languageName: node
   linkType: hard
 
@@ -7505,7 +7525,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pacote@npm:^17.0.0, pacote@npm:^17.0.4":
+"pacote@npm:^17.0.0, pacote@npm:^17.0.4, pacote@npm:^17.0.5":
   version: 17.0.5
   resolution: "pacote@npm:17.0.5"
   dependencies:
@@ -8836,7 +8856,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"strip-ansi@npm:^7.0.1":
+"strip-ansi@npm:^7.0.1, strip-ansi@npm:^7.1.0":
   version: 7.1.0
   resolution: "strip-ansi@npm:7.1.0"
   dependencies:
