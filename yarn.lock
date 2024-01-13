@@ -860,9 +860,10 @@ __metadata:
   linkType: hard
 
 "@oclif/core@npm:^3, @oclif/core@npm:^3.0.4, @oclif/core@npm:^3.10.2, @oclif/core@npm:^3.12.0, @oclif/core@npm:^3.13.1":
-  version: 3.14.1
-  resolution: "@oclif/core@npm:3.14.1"
+  version: 3.18.1
+  resolution: "@oclif/core@npm:3.18.1"
   dependencies:
+    "@types/cli-progress": "npm:^3.11.5"
     ansi-escapes: "npm:^4.3.2"
     ansi-styles: "npm:^4.3.0"
     cardinal: "npm:^2.1.1"
@@ -880,17 +881,16 @@ __metadata:
     js-yaml: "npm:^3.14.1"
     natural-orderby: "npm:^2.0.3"
     object-treeify: "npm:^1.1.33"
-    password-prompt: "npm:^1.1.2"
+    password-prompt: "npm:^1.1.3"
     slice-ansi: "npm:^4.0.0"
     string-width: "npm:^4.2.3"
     strip-ansi: "npm:^6.0.1"
     supports-color: "npm:^8.1.1"
     supports-hyperlinks: "npm:^2.2.0"
-    tsconfck: "npm:^3.0.0"
     widest-line: "npm:^3.1.0"
     wordwrap: "npm:^1.0.0"
     wrap-ansi: "npm:^7.0.0"
-  checksum: 084d75ea430ab675e540b675fc1867481fa37ac0a85bac764bca8ae5fdb2548a31ccacd9a07b6d4f388f7cb353a879812ee0dc49ad503f1f645c0177478a2ef2
+  checksum: cb1b65ebc47fd7cedc3b29ab723ba8a48ce3da9a7c0c1a0825d46ad3875698546ebadbd62441a3c5510d318e02b91821aaa2d3241c0d13a0e6597f7ae747884b
   languageName: node
   linkType: hard
 
@@ -1337,7 +1337,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/cli-progress@npm:^3.11.0":
+"@types/cli-progress@npm:^3.11.0, @types/cli-progress@npm:^3.11.5":
   version: 3.11.5
   resolution: "@types/cli-progress@npm:3.11.5"
   dependencies:
@@ -7606,7 +7606,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"password-prompt@npm:^1.1.2":
+"password-prompt@npm:^1.1.2, password-prompt@npm:^1.1.3":
   version: 1.1.3
   resolution: "password-prompt@npm:1.1.3"
   dependencies:
@@ -9117,20 +9117,6 @@ __metadata:
     ts-node-transpile-only: dist/bin-transpile.js
     ts-script: dist/bin-script-deprecated.js
   checksum: 5f29938489f96982a25ba650b64218e83a3357d76f7bede80195c65ab44ad279c8357264639b7abdd5d7e75fc269a83daa0e9c62fd8637a3def67254ecc9ddc2
-  languageName: node
-  linkType: hard
-
-"tsconfck@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "tsconfck@npm:3.0.0"
-  peerDependencies:
-    typescript: ^5.0.0
-  peerDependenciesMeta:
-    typescript:
-      optional: true
-  bin:
-    tsconfck: bin/tsconfck.js
-  checksum: 3614f52675b6c279c6e3d72f4dfdc8bb80c7b051e6d3227bcc67c6af9e8a4449a3eee9c6cf92b6720906bb32df03bc85830786fc7cf9ed3a9a98edb21b2ccc90
   languageName: node
   linkType: hard
 
