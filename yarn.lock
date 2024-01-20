@@ -915,8 +915,8 @@ __metadata:
   linkType: hard
 
 "@oclif/plugin-plugins@npm:^4":
-  version: 4.1.10
-  resolution: "@oclif/plugin-plugins@npm:4.1.10"
+  version: 4.1.18
+  resolution: "@oclif/plugin-plugins@npm:4.1.18"
   dependencies:
     "@oclif/core": "npm:^3.10.2"
     chalk: "npm:^5.3.0"
@@ -927,7 +927,7 @@ __metadata:
     shelljs: "npm:^0.8.5"
     validate-npm-package-name: "npm:^5.0.0"
     yarn: "npm:^1.22.21"
-  checksum: a33f0218fd447ace247e7a997d9330ce79cb95587f79dcf85607ac8d092757838ca83d7ed0b41e3fef801c02eab2785f5c6bb85b25e79cf01172a8ca68ab22da
+  checksum: b311f9d973c18b3c88d25080d0d2288b26ce01b1b2d4a5d9a2143a0e628e03cae4bbc5f82e7f6d6596f297e6c12d99c8579fcbd896c9d143e69e9314bef08bfa
   languageName: node
   linkType: hard
 
