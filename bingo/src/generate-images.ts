@@ -54,7 +54,6 @@ if (gen) {
       args.push(...[`./assets-resized/${file}`])
       args.push(...[`./assets-resized/canvas.png`])
       args.push(...[`./assets-resized/${file}`])
-
       spawn.sync('magick', args, io)
     })
 
@@ -70,7 +69,6 @@ if (gen) {
       args.push(...['-size', `${textSize}x${textSize}`])
       args.push(...[`caption:${spot.text}`])
       args.push(...[outpath])
-
       spawn.sync('magick', args, io)
 
       // add background
@@ -83,7 +81,6 @@ if (gen) {
         args.push(...[outpath])
         args.push(...[`./assets-resized/${spot.background}.png`])
         args.push(...[outpath])
-
         spawn.sync('magick', args, io)
       }
 
@@ -94,7 +91,6 @@ if (gen) {
       args.push(...['-bordercolor', 'white', '-border', margin])
       args.push(...['-bordercolor', 'gold1', '-border', border])
       args.push(...[outpath])
-
       spawn.sync('magick', args, io)
     })
   }
@@ -103,11 +99,6 @@ if (gen) {
 }
 
 // generate board
-
-// title 6*512: unofficial keyforge bingo
-// keys on top
-// rules on bottom
-
 function generateBoard(index: number) {
   let spotsCopy = [...spots]
 
@@ -199,12 +190,6 @@ function generateBoard(index: number) {
   args.push(...['-geometry', `${squareSize}x${squareSize}+0+0`])
   args.push(...[`./cards/card${index.toString().padStart(4, '0')}.png`])
   spawn.sync('magick', args, io)
-
-  // args = []
-  // args.push(...[`./cards/card${index.toString().padStart(4, '0')}.png`])
-  // args.push(...['-bordercolor', 'gold1', '-border', border])
-  // args.push(...[`./cards/card${index.toString().padStart(4, '0')}.png`])
-  // spawn.sync('magick', args, io)
 }
 
 if (gen) {
@@ -286,14 +271,80 @@ function generateTitle(index: number) {
   spawn.sync('magick', args, io)
 }
 
-// if (gen) {
-for (let i = 0; i < boardCount; i++) {
-  generateTitle(i)
+if (gen) {
+  for (let i = 0; i < boardCount; i++) {
+    generateTitle(i)
+  }
 }
-// }
+
+// footer
+args = []
+args.push(...['-size', `${squareSize}x${squareSize}`])
+args.push(...['canvas:transparent'])
+args.push(...[`PNG32:./assets-resized/canvas-square.png`])
+spawn.sync('magick', args, io)
+
+// resize smaller than canvas
+const keys = [
+  'kf-token-key-blue-forged.png',
+  'kf-token-key-blue-unforged.png',
+  'kf-token-key-red-forged.png',
+  'kf-token-key-red-unforged.png',
+  'kf-token-key-yellow-forged.png',
+  'kf-token-key-yellow-unforged.png',
+]
+
+keys.forEach((file) => {
+  const filepath = path.join(__dirname, '../', 'assets', file)
+
+  // resize smaller than canvas
+  let args = []
+  args.push(...[filepath])
+  args.push(...['-resize', `${backgroundSize}x${backgroundSize}`])
+  args.push(...['-channel', 'A', '-evaluate', 'multiply', '0.30', '+channel'])
+  args.push(...[`./assets-resized/${file}`])
+  spawn.sync('magick', args, io)
+
+  // merge onto canvas
+  args = []
+  args.push(...['composite'])
+  args.push(...['-colorspace', 'sRGB'])
+  args.push(...['-gravity', 'center'])
+  args.push(...[`./assets-resized/${file}`])
+  args.push(...[`./assets-resized/canvas-square.png`])
+  args.push(...[`./assets-resized/${file}`])
+  spawn.sync('magick', args, io)
+})
+args = []
+args.push(...[`./assets-resized/kf-token-key-blue-forged.png`])
+args.push(...[`./assets-resized/kf-token-key-blue-unforged.png`])
+args.push(...[`./assets-resized/kf-token-key-red-forged.png`])
+args.push(...[`./assets-resized/kf-token-key-red-unforged.png`])
+args.push(...[`./assets-resized/kf-token-key-yellow-forged.png`])
+args.push(...[`./assets-resized/kf-token-key-yellow-unforged.png`])
+args.push(...['+append'])
+args.push(...[`./cards/footer.png`])
+spawn.sync('magick', args, io)
+
+// add border
+args = []
+args.push(...[`./cards/footer.png`])
+args.push(...['-bordercolor', 'white', '-border', border])
+args.push(...[`./cards/footer.png`])
+spawn.sync('magick', args, io)
+
+// generate rules
+args = []
+args.push(...['-background', 'none'])
+args.push(...['-gravity', 'west'])
+args.push(...['-font', 'TeutonFett'])
+args.push(...['-size', `${cardSize - 2 * margin}x${cardSize / 2 - 2 * margin}`])
+args.push(...[`caption:${data.rules}`])
+args.push(...['-bordercolor', 'white', '-border', margin + border])
+args.push(...['./cards/rules.png'])
+spawn.sync('magick', args, io)
 
 // put it all together
-
 function assembleCard(index: number) {
   let args = []
   args.push(...[`./cards/title${index.toString().padStart(4, '0')}.png`])
@@ -309,10 +360,25 @@ function assembleCard(index: number) {
   args.push(...['-bordercolor', 'gold1', '-border', border])
   args.push(...[`./cards/board${index.toString().padStart(4, '0')}.png`])
   spawn.sync('magick', args, io)
+
+  // add footer and rules
+  args = []
+  args.push(...[`./cards/board${index.toString().padStart(4, '0')}.png`])
+  args.push(...[`./cards/footer.png`])
+  args.push(...[`./cards/rules.png`])
+  args.push(...['-append'])
+  args.push(...[`./cards/board${index.toString().padStart(4, '0')}.png`])
+  spawn.sync('magick', args, io)
 }
 
-// if (gen) {
 for (let i = 0; i < boardCount; i++) {
   assembleCard(i)
 }
-// }
+
+// convert to pdf
+args = []
+args.push(...['--output' './bingo-boards.pdf'])
+args.push(...['--page-size', 'Letter'])
+args.push(...['--border', '0.5in:0.5in'])
+args.push(...['--fit', 'into'])
+args.push(...[`./cards/board*.png`])

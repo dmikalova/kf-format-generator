@@ -1,4 +1,5 @@
 const data: {
+  rules: string
   spots: Array<{
     background?: string
     backgroundRotate?: boolean
@@ -12,9 +13,11 @@ const data: {
     suffixes: string[]
   }
 } = {
+  rules: `KeyForge Bingo - forge 3 rows, columns, or diagonals to unlock the power and knowledge within the Vaults!\n\n - Don't interrupt your game to mark off spots - wait until\n   after your match is finished or you might get DQed!\n - Consider the entire board state and both players - your \n   opponent's gameplay can help you to forge keys!\n - Do as much as you can - interpret the spots liberally!\n - Unofficial and not endorsed by GG - submit any issues\n   or suggestions to @dmikalova on Discord!`,
   title: {
     prefixes: [
       '[REDACTED]',
+      'bad',
       'black-market',
       'bootleg',
       'contraband',
@@ -31,6 +34,7 @@ const data: {
       'non-sanctumed',
       'noname',
       'prohibited',
+      'prophetic',
       'shady',
       'sneklifted',
       'sure gamble',
@@ -41,14 +45,13 @@ const data: {
       'unauthorized',
       'uncertified',
       'unfathomable',
-      'unsanctumable',
       'unlicensed',
       'unofficial',
       'unsanctioned',
+      'unsanctumable',
       'unsanctumed',
       'verboten',
       'wrongful',
-      'bad',
     ],
     suffixes: [
       'Æmber Bingo',
@@ -150,55 +153,65 @@ const data: {
     {category: 'time-rules', difficulty: 'hard', text: 'extended tiebreaker - chains, creatures, or first player'},
 
     // forging
-    {category: 'key-cheat', difficulty: 'easy', text: 'cheat a key'},
-    {category: 'key-cheat', difficulty: 'medium', text: 'forge 2 keys in one turn'},
-    {category: 'key-cheat', difficulty: 'hard', text: 'cheat 2 keys'},
-    {category: 'key-cheat', difficulty: 'impossible', text: 'cheat 3 keys'},
-    {category: 'key-cheat', difficulty: 'impossible', text: 'forge 3 keys in one turn'},
+    {background: 'key-forged', category: 'key-cheat', difficulty: 'easy', text: 'cheat a key'},
+    {background: 'key-forged', category: 'key-cheat', difficulty: 'medium', text: 'forge 2 keys in one turn'},
+    {background: 'key-forged', category: 'key-cheat', difficulty: 'hard', text: 'cheat 2 keys'},
+    {background: 'key-forged', category: 'key-cheat', difficulty: 'impossible', text: 'cheat 3 keys'},
+    {background: 'key-forged', category: 'key-cheat', difficulty: 'impossible', text: 'forge 3 keys in one turn'},
 
-    {category: 'key-count', difficulty: 'medium', text: 'lose a game with 0 keys'},
-    {category: 'key-count', difficulty: 'medium', text: 'forge the wrong color key'},
-    {category: 'key-count', difficulty: 'impossible', text: 'lose a game with 0 keys 0 Æmber'},
-    {category: 'key-count', difficulty: 'impossible', text: 'forge 4+ keys'},
+    {background: 'key-forged', category: 'key-count', difficulty: 'medium', text: 'lose a game with 0 keys'},
+    {background: 'key-forged', category: 'key-count', difficulty: 'medium', text: 'forge the wrong color key'},
+    {
+      background: 'key-forged',
+      category: 'key-count',
+      difficulty: 'impossible',
+      text: 'lose a game with 0 keys 0 Æmber',
+    },
+    {background: 'key-forged', category: 'key-count', difficulty: 'impossible', text: 'forge 4+ keys'},
 
-    {category: 'forge-cost', difficulty: 'easy', text: 'forge for 9+ Æmber'},
-    {category: 'forge-cost', difficulty: 'medium', text: 'forge for 12+ Æmber'},
-    {category: 'forge-cost', difficulty: 'medium', text: 'forge 2 keys for 9+ Æmber'},
-    {category: 'forge-cost', difficulty: 'hard', text: 'forge 3 keys for 9+ Æmber'},
-    {category: 'forge-cost', difficulty: 'impossible', text: 'forge for 0 cost'},
+    {background: 'key-forged', category: 'forge-cost', difficulty: 'easy', text: 'forge for 9+ Æmber'},
+    {background: 'key-forged', category: 'forge-cost', difficulty: 'medium', text: 'forge for 12+ Æmber'},
+    {background: 'key-forged', category: 'forge-cost', difficulty: 'medium', text: 'forge 2 keys for 9+ Æmber'},
+    {background: 'key-forged', category: 'forge-cost', difficulty: 'hard', text: 'forge 3 keys for 9+ Æmber'},
+    {background: 'key-forged', category: 'forge-cost', difficulty: 'impossible', text: 'forge for 0 cost'},
 
     // tokens
-    {category: 'game-tokens', difficulty: 'medium', text: '4+ enraged creatures'},
-    {category: 'game-tokens', difficulty: 'medium', text: '4+ stunned creatures'},
-    {category: 'game-tokens', difficulty: 'medium', text: '4+ warded creatures'},
-    {category: 'game-tokens', difficulty: 'medium', text: 'generic counter ie doom, growth, time'},
+    {background: 'enrage', category: 'game-tokens', difficulty: 'medium', text: '4+ enraged creatures'},
+    {background: 'stun', category: 'game-tokens', difficulty: 'medium', text: '4+ stunned creatures'},
+    {background: 'ward', category: 'game-tokens', difficulty: 'medium', text: '4+ warded creatures'},
+    {
+      background: 'generic-token',
+      category: 'game-tokens',
+      difficulty: 'medium',
+      text: 'generic counter ie doom, growth, time',
+    },
     {category: 'game-tokens', difficulty: 'hard', text: 'have over 100 of a token (ie Æmber, +1 power, damage)'},
     {category: 'game-tokens', difficulty: 'hard', text: 'run out of your own Æmber tokens'},
 
     // bonus icons
-    {category: 'bonus-count', difficulty: 'easy', text: 'card with 3 bonus icons'},
-    {category: 'bonus-count', difficulty: 'medium', text: 'card with 4 bonus icons'},
-    {category: 'bonus-count', difficulty: 'impossible', text: 'card with 5 bonus icons'},
-    {category: 'bonus-count', difficulty: 'easy', text: 'card with 2+ Æmber pips'},
-    {category: 'bonus-count', difficulty: 'medium', text: 'card with 2+ draw pips'},
-    {category: 'bonus-count', difficulty: 'medium', text: 'card with 2+ damage pips'},
-    {category: 'bonus-count', difficulty: 'medium', text: 'card with 2+ discard pips'},
-    {category: 'bonus-count', difficulty: 'medium', text: 'card with 2+ capture pips'},
+    {background: 'pip', category: 'bonus-count', difficulty: 'easy', text: 'card with 3 bonus icons'},
+    {background: 'pip', category: 'bonus-count', difficulty: 'medium', text: 'card with 4 bonus icons'},
+    {background: 'pip', category: 'bonus-count', difficulty: 'impossible', text: 'card with 5 bonus icons'},
+    {background: 'pip', category: 'bonus-count', difficulty: 'easy', text: 'card with 2+ Æmber pips'},
+    {background: 'pip', category: 'bonus-count', difficulty: 'medium', text: 'card with 2+ draw pips'},
+    {background: 'pip', category: 'bonus-count', difficulty: 'medium', text: 'card with 2+ damage pips'},
+    {background: 'pip', category: 'bonus-count', difficulty: 'medium', text: 'card with 2+ discard pips'},
+    {background: 'pip', category: 'bonus-count', difficulty: 'medium', text: 'card with 2+ capture pips'},
 
     // aember
-    {category: 'interrupt', difficulty: 'easy', text: 'stop check 2 turns in a row'},
-    {category: 'interrupt', difficulty: 'medium', text: 'stop check 4 turns in a row'},
-    {category: 'interrupt', difficulty: 'hard', text: 'stop check 6 turns in a row'},
-    {category: 'aember-loss', difficulty: 'easy', text: 'lose with 6+ Æmber'},
-    {category: 'aember-loss', difficulty: 'medium', text: 'lose with 12+ Æmber'},
-    {category: 'aember-loss', difficulty: 'hard', text: 'lose with 18+ Æmber'},
-    {category: 'capture-steal', difficulty: 'easy', text: 'take or spend captured Æmber'},
-    {category: 'capture-steal', difficulty: 'easy', text: 'capture 4 Æmber in one action'},
-    {category: 'capture-steal', difficulty: 'medium', text: 'capture 6 Æmber in one action'},
-    {category: 'capture-steal', difficulty: 'hard', text: 'capture 8 Æmber in one action'},
-    {category: 'capture-steal', difficulty: 'easy', text: 'steal 4 Æmber in one turn'},
-    {category: 'capture-steal', difficulty: 'medium', text: 'steal 6 Æmber in one turn'},
-    {category: 'capture-steal', difficulty: 'hard', text: 'steal 8 Æmber in one turn'},
+    {background: 'aember', category: 'interrupt', difficulty: 'easy', text: 'stop check 2 turns in a row'},
+    {background: 'aember', category: 'interrupt', difficulty: 'medium', text: 'stop check 4 turns in a row'},
+    {background: 'aember', category: 'interrupt', difficulty: 'hard', text: 'stop check 6 turns in a row'},
+    {background: 'aember', category: 'aember-loss', difficulty: 'easy', text: 'lose with 6+ Æmber'},
+    {background: 'aember', category: 'aember-loss', difficulty: 'medium', text: 'lose with 12+ Æmber'},
+    {background: 'aember', category: 'aember-loss', difficulty: 'hard', text: 'lose with 18+ Æmber'},
+    {background: 'aember', category: 'capture-steal', difficulty: 'easy', text: 'take or spend captured Æmber'},
+    {background: 'aember', category: 'capture-steal', difficulty: 'easy', text: 'capture 4 Æmber in one action'},
+    {background: 'aember', category: 'capture-steal', difficulty: 'medium', text: 'capture 6 Æmber in one action'},
+    {background: 'aember', category: 'capture-steal', difficulty: 'hard', text: 'capture 8 Æmber in one action'},
+    {background: 'aember', category: 'capture-steal', difficulty: 'easy', text: 'steal 4 Æmber in one turn'},
+    {background: 'aember', category: 'capture-steal', difficulty: 'medium', text: 'steal 6 Æmber in one turn'},
+    {background: 'aember', category: 'capture-steal', difficulty: 'hard', text: 'steal 8 Æmber in one turn'},
 
     // deck
     {difficulty: 'easy', text: 'reveal or tokenize with empty deck'},
@@ -238,22 +251,27 @@ const data: {
     {category: 'purged-count', difficulty: 'medium', text: '6+ purged cards'},
     {category: 'purged-count', difficulty: 'hard', text: '8+ purged cards'},
     {category: 'purged-count', difficulty: 'impossible', text: '12+ purged cards'},
-    {category: 'archive-count', difficulty: 'easy', text: 'archive 4+ cards'},
-    {category: 'archive-count', difficulty: 'medium', text: 'archive 8+ cards'},
-    {category: 'archive-count', difficulty: 'hard', text: 'archive 12+ cards'},
-    {category: 'archive-count', difficulty: 'impossible', text: 'archive 16+ cards'},
+    {category: 'archive-count', difficulty: 'easy', text: '6+ archived cards'},
+    {category: 'archive-count', difficulty: 'medium', text: '9+ archived cards'},
+    {category: 'archive-count', difficulty: 'hard', text: '12+ archived cards'},
+    {category: 'archive-count', difficulty: 'impossible', text: '18+ archived cards'},
     {category: 'control-change', difficulty: 'easy', text: 'change control of 2+ cards'},
     {category: 'control-change', difficulty: 'medium', text: 'change control of 3+ cards'},
     {category: 'control-change', difficulty: 'hard', text: 'change control of 4+ cards'},
 
     // battleline
-    {category: 'creature-power', difficulty: 'hard', text: 'creature with 5+ shield'},
-    {category: 'creature-power', difficulty: 'easy', text: '12+ power creature'},
-    {category: 'creature-power', difficulty: 'medium', text: '16+ power creature'},
-    {category: 'creature-power', difficulty: 'hard', text: '20+ power creature'},
-    {category: 'creature-power', difficulty: 'easy', text: 'creatures with powers 2 to 5 in play'},
-    {category: 'creature-power', difficulty: 'medium', text: 'creatures with powers 1 to 5 in play'},
-    {category: 'creature-power', difficulty: 'hard', text: 'creatures with powers 1 to 6 in play'},
+    {background: 'armor', category: 'creature-power', difficulty: 'hard', text: 'creature with 5+ shield'},
+    {background: 'power', category: 'creature-power', difficulty: 'easy', text: '12+ power creature'},
+    {background: 'power', category: 'creature-power', difficulty: 'medium', text: '16+ power creature'},
+    {background: 'power', category: 'creature-power', difficulty: 'hard', text: '20+ power creature'},
+    {background: 'power', category: 'creature-power', difficulty: 'easy', text: 'creatures with powers 2 to 5 in play'},
+    {
+      background: 'power',
+      category: 'creature-power',
+      difficulty: 'medium',
+      text: 'creatures with powers 1 to 5 in play',
+    },
+    {background: 'power', category: 'creature-power', difficulty: 'hard', text: 'creatures with powers 1 to 6 in play'},
     {category: 'upgrade-count', difficulty: 'easy', text: '4+ upgrades in play'},
     {category: 'upgrade-count', difficulty: 'medium', text: '6+ upgrades in play'},
     {category: 'upgrade-count', difficulty: 'hard', text: '8+ upgrades in play'},
@@ -279,6 +297,7 @@ const data: {
     {category: 'c-c-combos', difficulty: 'easy', text: 'plow through obvious trap ie redline'},
 
     // adventures
+    {category: 'kf-adventure', difficulty: 'hard', text: 'play a game with 3+ players'},
     {category: 'kf-adventure', difficulty: 'hard', text: 'play a KeyForge Adventure'},
     {category: 'kf-adventure', difficulty: 'impossible', text: 'gain stratoflight'},
 
@@ -394,6 +413,8 @@ const data: {
     {category: 'trait', difficulty: 'easy', text: '4 Human trait cards in play'},
     {category: 'trait', difficulty: 'easy', text: '4 Mutant trait cards in play'},
     {category: 'trait', difficulty: 'medium', text: '1 Leader trait card in play'},
+    {category: 'trait', difficulty: 'medium', text: '6+ cards with 2 traits in play'},
+    {category: 'trait', difficulty: 'impossible', text: 'card with 3 traits in play'},
     {background: 'cool-moor', category: 'trait', difficulty: 'impossible', text: '1 Wolf trait card in play'},
 
     {difficulty: 'easy', text: '6+ creatures with same trait in play'},
