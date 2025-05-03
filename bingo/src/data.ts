@@ -1,0 +1,303 @@
+const data: {
+  spots: Array<{
+    background?: string
+    backgroundRotate?: boolean
+    category?: string
+    difficulty: string
+    id?: number
+    text: string
+  }>
+} = {
+  spots: [
+    // free spots
+    {background: 'aember1', backgroundRotate: true, difficulty: 'free', text: 'free Æmber'},
+    {background: 'aember2', backgroundRotate: true, difficulty: 'free', text: 'free Æmber'},
+    {background: 'aember3', backgroundRotate: true, difficulty: 'free', text: 'free Æmber'},
+    {background: 'aember4', backgroundRotate: true, difficulty: 'free', text: 'free Æmber'},
+    {background: 'aember5', backgroundRotate: true, difficulty: 'free', text: 'free Æmber'},
+    {background: 'aember6', backgroundRotate: true, difficulty: 'free', text: 'free Æmber'},
+
+    // out of game
+    {category: 'social', difficulty: 'easy', text: 'play a goofy giggly game'},
+    {category: 'social', difficulty: 'easy', text: 'play a TCO friend'},
+    {category: 'social', difficulty: 'easy', text: 'play a good friend'},
+    {category: 'social', difficulty: 'easy', text: 'play an intimidating opponent'},
+    {category: 'social', difficulty: 'easy', text: 'teach someone a new trick'},
+    {category: 'social', difficulty: 'easy', text: 'learn a new trick'},
+    {category: 'social', difficulty: 'easy', text: 'thank the GG crew'},
+    {background: 'cool-moor', category: 'social', difficulty: 'medium', text: 'play a Moor Wolf Pack member'},
+    {category: 'social', difficulty: 'easy', text: 'tell a friend about KeyForge'},
+
+    // player
+    {category: 'perspective', difficulty: 'easy', text: 'immediately regret playing a card'},
+    {category: 'perspective', difficulty: 'easy', text: 'do something really good with a really bad card'},
+    {category: 'perspective', difficulty: 'easy', text: 'come back after giving up'},
+    {category: 'perspective', difficulty: 'easy', text: 'wrong choice for the right reasons'},
+    {category: 'perspective', difficulty: 'easy', text: 'right choice for the wrong reasons'},
+    {category: 'perspective', difficulty: 'easy', text: 'discover a new to you combo'},
+    {category: 'perspective', difficulty: 'easy', text: 'you forgot this card existed'},
+    {category: 'perspective', difficulty: 'easy', text: 'go on an epic quest'},
+    {category: 'perspective', difficulty: 'easy', text: 'funny deck name'},
+    {category: 'perspective', difficulty: 'easy', text: 'call a random discard or purge'},
+    {difficulty: 'medium', text: 'win a tourney ie 2LO, side pod'},
+
+    // matchup
+    {category: 'decks', difficulty: 'easy', text: 'both decks have no matching houses'},
+    {category: 'decks', difficulty: 'easy', text: 'both decks have 3 matching houses'},
+    {category: 'decks', difficulty: 'easy', text: 'both deck names share a word'},
+    {category: 'time-rules', difficulty: 'easy', text: 'go to time'},
+    {category: 'time-rules', difficulty: 'medium', text: 'lose by going to time'},
+    {category: 'time-rules', difficulty: 'hard', text: 'extended tiebreaker - chains, creatures, or first player'},
+
+    // forging
+    {category: 'key-cheat', difficulty: 'easy', text: 'cheat a key'},
+    {category: 'key-cheat', difficulty: 'medium', text: 'forge 2 keys in one turn'},
+    {category: 'key-cheat', difficulty: 'hard', text: 'cheat 2 keys'},
+    {category: 'key-cheat', difficulty: 'impossible', text: 'cheat 3 keys'},
+    {category: 'key-cheat', difficulty: 'impossible', text: 'forge 3 keys in one turn'},
+
+    {category: 'key-count', difficulty: 'medium', text: 'lose a game with 0 keys'},
+    {category: 'key-count', difficulty: 'medium', text: 'forge the wrong color key'},
+    {category: 'key-count', difficulty: 'impossible', text: 'lose a game with 0 keys 0 Æmber'},
+    {category: 'key-count', difficulty: 'impossible', text: 'forge 4+ keys'},
+
+    {category: 'forge-cost', difficulty: 'easy', text: 'forge for 9+ Æmber'},
+    {category: 'forge-cost', difficulty: 'medium', text: 'forge for 12+ Æmber'},
+    {category: 'forge-cost', difficulty: 'medium', text: 'forge 2 keys for 9+ Æmber'},
+    {category: 'forge-cost', difficulty: 'hard', text: 'forge 3 keys for 9+ Æmber'},
+    {category: 'forge-cost', difficulty: 'impossible', text: 'forge for 0 cost'},
+
+    // tokens
+    {category: 'game-tokens', difficulty: 'medium', text: '4+ enraged creatures'},
+    {category: 'game-tokens', difficulty: 'medium', text: '4+ stunned creatures'},
+    {category: 'game-tokens', difficulty: 'medium', text: '4+ warded creatures'},
+    {category: 'game-tokens', difficulty: 'medium', text: 'generic counter ie doom, growth, time'},
+    {category: 'game-tokens', difficulty: 'hard', text: 'have over 100 of a token (ie Æmber, +1 power, damage)'},
+    {category: 'game-tokens', difficulty: 'hard', text: 'run out of your own Æmber tokens'},
+
+    // bonus icons
+    {category: 'bonus-count', difficulty: 'easy', text: 'card with 3 bonus icons'},
+    {category: 'bonus-count', difficulty: 'medium', text: 'card with 4 bonus icons'},
+    {category: 'bonus-count', difficulty: 'impossible', text: 'card with 5 bonus icons'},
+    {category: 'bonus-count', difficulty: 'easy', text: 'card with 2+ Æmber pips'},
+    {category: 'bonus-count', difficulty: 'medium', text: 'card with 2+ draw pips'},
+    {category: 'bonus-count', difficulty: 'medium', text: 'card with 2+ damage pips'},
+    {category: 'bonus-count', difficulty: 'medium', text: 'card with 2+ discard pips'},
+    {category: 'bonus-count', difficulty: 'medium', text: 'card with 2+ capture pips'},
+
+    // aember
+    {category: 'interrupt', difficulty: 'easy', text: 'stop check 2 turns in a row'},
+    {category: 'interrupt', difficulty: 'medium', text: 'stop check 4 turns in a row'},
+    {category: 'interrupt', difficulty: 'hard', text: 'stop check 6 turns in a row'},
+    {category: 'aember-loss', difficulty: 'easy', text: 'lose with 6+ Æmber'},
+    {category: 'aember-loss', difficulty: 'medium', text: 'lose with 12+ Æmber'},
+    {category: 'aember-loss', difficulty: 'hard', text: 'lose with 18+ Æmber'},
+    {category: 'capture-steal', difficulty: 'easy', text: 'take or spend captured Æmber'},
+    {category: 'capture-steal', difficulty: 'easy', text: 'capture 4 Æmber in one action'},
+    {category: 'capture-steal', difficulty: 'medium', text: 'capture 6 Æmber in one action'},
+    {category: 'capture-steal', difficulty: 'hard', text: 'capture 8 Æmber in one action'},
+    {category: 'capture-steal', difficulty: 'easy', text: 'steal 4 Æmber in one turn'},
+    {category: 'capture-steal', difficulty: 'medium', text: 'steal 6 Æmber in one turn'},
+    {category: 'capture-steal', difficulty: 'hard', text: 'steal 8 Æmber in one turn'},
+
+    // deck
+    {difficulty: 'easy', text: 'reveal or tokenize with empty deck'},
+    {difficulty: 'hard', text: 'ruin opponents combo by causing them to draw cards'},
+    {category: 'shuffle count', difficulty: 'easy', text: 'shuffle deck 3 times'},
+    {category: 'shuffle count', difficulty: 'medium', text: 'shuffle deck 4 times'},
+    {category: 'shuffle count', difficulty: 'hard', text: 'shuffle deck 5 times'},
+
+    // hand
+    {category: 'hand-mgmt', difficulty: 'easy', text: 'play no cards in a turn'},
+    {category: 'hand-mgmt', difficulty: 'easy', text: 'play whole hand in a turn'},
+    {category: 'hand-mgmt', difficulty: 'easy', text: '2/2/2 hand 3 turns in a row'},
+    {category: 'hand-mgmt', difficulty: 'easy', text: 'mulligan for a worse hand'},
+    {category: 'hand-mgmt', difficulty: 'impossible', text: "discard opponent's hand"},
+
+    // abilities
+    {category: 'abilities', difficulty: 'medium', text: 'avoid a Destroyed: ability'},
+    {category: 'abilities', difficulty: 'easy', text: 'creature with 2 After Reap: abilities'},
+    {category: 'abilities', difficulty: 'medium', text: 'creature with 2 After Fight: abilities'},
+    {category: 'abilities', difficulty: 'hard', text: 'creature with 2 Action: abilities'},
+    {category: 'abilities', difficulty: 'hard', text: 'creature with 2 Desroyed: abilities'},
+    {category: 'abilities', difficulty: 'hard', text: '6+ Elusive creatures'},
+    {category: 'abilities', difficulty: 'hard', text: '6+ Taunt creatures'},
+    {category: 'abilities', difficulty: 'impossible', text: 'Hazardous 4+ creature'},
+    {category: 'abilities', difficulty: 'impossible', text: 'Assault 4+ creature'},
+    {category: 'abilities', difficulty: 'hard', text: '6+ creatures with 2+ abilities'},
+    {category: 'abilities', difficulty: 'impossible', text: 'creature with Invulnerable'},
+
+    {difficulty: 'easy', text: 'accidentally fight into elusive'},
+    {difficulty: 'easy', text: "board wipe 6+ of your creatures for 3- of your opponent's"},
+    {difficulty: 'easy', text: 'fight and die with 4+ creatures to take out 1 creature (can be multiple turns)'},
+
+    // zones
+    {difficulty: 'hard', text: '3 extra out of play zones ie card under card'},
+
+    {category: 'purged-count', difficulty: 'easy', text: '4+ purged cards'},
+    {category: 'purged-count', difficulty: 'medium', text: '6+ purged cards'},
+    {category: 'purged-count', difficulty: 'hard', text: '8+ purged cards'},
+    {category: 'purged-count', difficulty: 'impossible', text: '12+ purged cards'},
+    {category: 'archive-count', difficulty: 'easy', text: 'archive 4+ cards'},
+    {category: 'archive-count', difficulty: 'medium', text: 'archive 8+ cards'},
+    {category: 'archive-count', difficulty: 'hard', text: 'archive 12+ cards'},
+    {category: 'archive-count', difficulty: 'impossible', text: 'archive 16+ cards'},
+    {category: 'control-change', difficulty: 'easy', text: 'change control of 2+ cards'},
+    {category: 'control-change', difficulty: 'medium', text: 'change control of 3+ cards'},
+    {category: 'control-change', difficulty: 'hard', text: 'change control of 4+ cards'},
+
+    // battleline
+    {category: 'creature-power', difficulty: 'hard', text: 'creature with 5+ shield'},
+    {category: 'creature-power', difficulty: 'easy', text: '12+ power creature'},
+    {category: 'creature-power', difficulty: 'medium', text: '16+ power creature'},
+    {category: 'creature-power', difficulty: 'hard', text: '20+ power creature'},
+    {category: 'creature-power', difficulty: 'easy', text: 'creatures with powers 2 to 5 in play'},
+    {category: 'creature-power', difficulty: 'medium', text: 'creatures with powers 1 to 5 in play'},
+    {category: 'creature-power', difficulty: 'hard', text: 'creatures with powers 1 to 6 in play'},
+    {category: 'upgrade-count', difficulty: 'easy', text: '4+ upgrades in play'},
+    {category: 'upgrade-count', difficulty: 'medium', text: '6+ upgrades in play'},
+    {category: 'upgrade-count', difficulty: 'hard', text: '8+ upgrades in play'},
+    {category: 'token-creature-count', difficulty: 'easy', text: '6+ token creatures in play'},
+    {category: 'token-creature-count', difficulty: 'medium', text: '12+ token creatures in play'},
+    {category: 'token-creature-count', difficulty: 'hard', text: '18+ token creatures in play'},
+
+    // artifacts
+    {category: 'artifacts', difficulty: 'easy', text: '6+ artifacts in play'},
+    {category: 'artifacts', difficulty: 'medium', text: '8+ artifacts in play'},
+    {category: 'artifacts', difficulty: 'hard', text: '10+ artifacts in play'},
+    {category: 'artifacts', difficulty: 'medium', text: 'creature as artifact'},
+    {category: 'artifacts', difficulty: 'hard', text: 'artifact as creature'},
+    {category: 'artifacts', difficulty: 'easy', text: 'game warping artifact'},
+
+    // combos
+    {category: 'c-c-combos', difficulty: 'impossible', text: 'infinite loop'},
+    {category: 'c-c-combos', difficulty: 'impossible', text: 'total lock out'},
+    {category: 'c-c-combos', difficulty: 'easy', text: 'rule of 6'},
+    {category: 'c-c-combos', difficulty: 'easy', text: 'bottom deck key card'},
+    {category: 'c-c-combos', difficulty: 'medium', text: 'randomly discard key card'},
+    {category: 'c-c-combos', difficulty: 'easy', text: 'accidental board wipe'},
+    {category: 'c-c-combos', difficulty: 'easy', text: 'plow through obvious trap ie redline'},
+
+    // adventures
+    {category: 'kf-adventure', difficulty: 'hard', text: 'play a KeyForge Adventure'},
+    {category: 'kf-adventure', difficulty: 'impossible', text: 'gain stratoflight'},
+
+    // sets
+    {background: 'cota', category: 'set', difficulty: 'hard', text: 'Call of the Archons deck'},
+    {background: 'aoa', category: 'set', difficulty: 'hard', text: 'Age of Ascension deck'},
+    {background: 'wc', category: 'set', difficulty: 'hard', text: 'Worlds Collide deck'},
+    {background: 'mm', category: 'set', difficulty: 'hard', text: 'Mass Mutation deck'},
+    {background: 'dt', category: 'set', difficulty: 'hard', text: 'Dark Tidings deck'},
+    {background: 'woe', category: 'set', difficulty: 'medium', text: 'Winds of Exchange deck'},
+    {background: 'gr', category: 'set', difficulty: 'easy', text: 'Grim Reminders deck'},
+    {background: 'as', category: 'set', difficulty: 'easy', text: 'Æmber Skies deck'},
+    {background: 'toc', category: 'set', difficulty: 'easy', text: 'Tokens of Change deck'},
+    {background: 'pv', category: 'set', difficulty: 'impossible', text: 'Prophetic Visions deck'},
+    {category: 'set', difficulty: 'impossible', text: 'Crucible Clash deck'},
+    {background: 'vm', category: 'set', difficulty: 'impossible', text: 'Vault Master 2023 deck'},
+    {background: 'vm', category: 'set', difficulty: 'hard', text: 'Vault Master 2024 deck'},
+    {background: 'vm', category: 'set', difficulty: 'easy', text: 'Vault Master 2025 deck'},
+    {background: 'momu', category: 'set', difficulty: 'medium', text: 'More Mutation deck'},
+    {background: 'disc', category: 'set', difficulty: 'medium', text: 'Discovery deck'},
+    {background: 'uc', category: 'set', difficulty: 'impossible', text: 'Unchained deck'},
+    {background: 'mn', category: 'set', difficulty: 'impossible', text: 'Menagerie deck'},
+
+    {difficulty: 'hard', text: 'tide is raised'},
+
+    // rarities
+    {category: 'rarity', difficulty: 'easy', text: '4+ copies of a card'},
+    {category: 'rarity', difficulty: 'easy', text: '4+ rares in a deck'},
+    {category: 'rarity', difficulty: 'medium', text: '5+ rares in a deck'},
+    {category: 'rarity', difficulty: 'hard', text: '6+ rares in a deck'},
+    {category: 'rarity', difficulty: 'medium', text: 'maverick card'},
+    {category: 'rarity', difficulty: 'medium', text: 'legacy card'},
+    {category: 'rarity', difficulty: 'medium', text: 'anomaly card'},
+    {category: 'rarity', difficulty: 'medium', text: 'skybeast card'},
+    {category: 'rarity', difficulty: 'medium', text: 'revenant card'},
+    {category: 'rarity', difficulty: 'medium', text: 'elder card'},
+
+    // houses
+    {difficulty: 'easy', text: 'play or use cards from 2+ houses in a turn'},
+    {difficulty: 'hard', text: 'play or use cards from 3+ houses in a turn'},
+    {category: 'house-choice', difficulty: 'hard', text: 'only use 2 houses'},
+    {category: 'house-choice', difficulty: 'impossible', text: 'only use 1 house'},
+    {category: 'house-choice', difficulty: 'medium', text: '4+ house choices at start of turn'},
+    {category: 'house-choice', difficulty: 'hard', text: '5+ house choices at start of turn'},
+    {category: 'house-choice', difficulty: 'impossible', text: '6+ house choices at start of turn'},
+
+    {background: 'brobnar', category: 'house', difficulty: 'easy', text: 'deck with Brobnar'},
+    {background: 'dis', category: 'house', difficulty: 'easy', text: 'deck with Dis'},
+    {background: 'ekwidon', category: 'house', difficulty: 'easy', text: 'deck with Ekwidon'},
+    {background: 'geistoid', category: 'house', difficulty: 'easy', text: 'deck with Geistoid'},
+    {background: 'keyraken', category: 'house', difficulty: 'impossible', text: 'deck with Keyraken'},
+    {background: 'logos', category: 'house', difficulty: 'easy', text: 'deck with Logos'},
+    {background: 'mars', category: 'house', difficulty: 'easy', text: 'deck with Mars'},
+    {background: 'redemption', category: 'house', difficulty: 'easy', text: 'deck with Redemption'},
+    {background: 'sanctum', category: 'house', difficulty: 'easy', text: 'deck with Sanctum'},
+    {background: 'saurian', category: 'house', difficulty: 'easy', text: 'deck with Saurian'},
+    {background: 'shadows', category: 'house', difficulty: 'easy', text: 'deck with Shadows'},
+    {background: 'skyborn', category: 'house', difficulty: 'easy', text: 'deck with Skyborn'},
+    {background: 'star-alliance', category: 'house', difficulty: 'easy', text: 'deck with Star alliance'},
+    {background: 'unfathomable', category: 'house', difficulty: 'easy', text: 'deck with Unfathomable'},
+    {background: 'untamed', category: 'house', difficulty: 'easy', text: 'deck with Untamed'},
+
+    // traits
+    {background: 'brobnar', category: 'trait', difficulty: 'easy', text: '3 Giant trait cards in play'},
+    {background: 'brobnar', category: 'trait', difficulty: 'medium', text: '2 Goblin trait cards in play'},
+    {background: 'brobnar', category: 'trait', difficulty: 'hard', text: 'Bräkken trait card in play'},
+    {background: 'dis', category: 'trait', difficulty: 'easy', text: '3 Demon trait cards in play'},
+    {background: 'dis', category: 'trait', difficulty: 'medium', text: '2 Imp trait cards in play'},
+    {background: 'dis', category: 'trait', difficulty: 'hard', text: 'Sin trait card in play'},
+    {background: 'ekwidon', category: 'trait', difficulty: 'easy', text: '3 Merchant trait cards in play'},
+    {background: 'ekwidon', category: 'trait', difficulty: 'medium', text: '2 Getrookya trait cards in play'},
+    {background: 'ekwidon', category: 'trait', difficulty: 'hard', text: 'Artisan trait card in play'},
+    {background: 'geistoid', category: 'trait', difficulty: 'easy', text: '3 Specter trait cards in play'},
+    {background: 'geistoid', category: 'trait', difficulty: 'medium', text: '2 Robot trait cards in play'},
+    {background: 'geistoid', category: 'trait', difficulty: 'hard', text: 'Clock trait card in play'},
+    {background: 'logos', category: 'trait', difficulty: 'easy', text: '3 Cyborg trait cards in play'},
+    {background: 'logos', category: 'trait', difficulty: 'medium', text: '2 Scientist trait cards in play'},
+    {background: 'logos', category: 'trait', difficulty: 'hard', text: 'Shapeshifter trait card in play'},
+    {background: 'mars', category: 'trait', difficulty: 'easy', text: '3 Martian trait cards in play'},
+    {background: 'mars', category: 'trait', difficulty: 'medium', text: '2 Soldier trait cards in play'},
+    {background: 'mars', category: 'trait', difficulty: 'hard', text: 'Ironyx trait card in play'},
+    {background: 'sanctum', category: 'trait', difficulty: 'easy', text: '3 Knight trait cards in play'},
+    {background: 'sanctum', category: 'trait', difficulty: 'medium', text: '2 Monk trait cards in play'},
+    {background: 'sanctum', category: 'trait', difficulty: 'hard', text: 'Spirit trait card in play'},
+    {background: 'saurian', category: 'trait', difficulty: 'easy', text: '3 Dinosaur trait cards in play'},
+    {background: 'saurian', category: 'trait', difficulty: 'medium', text: '2 Politician trait cards in play'},
+    {background: 'saurian', category: 'trait', difficulty: 'hard', text: 'Philosopher trait card in play'},
+    {background: 'shadows', category: 'trait', difficulty: 'easy', text: '3 Thief trait cards in play'},
+    {background: 'shadows', category: 'trait', difficulty: 'medium', text: '2 Elf trait cards in play'},
+    {background: 'shadows', category: 'trait', difficulty: 'hard', text: 'Rat trait card in play'},
+    {background: 'skyborn', category: 'trait', difficulty: 'easy', text: '3 Stormkin trait cards in play'},
+    {background: 'skyborn', category: 'trait', difficulty: 'medium', text: '2 Raptrix trait cards in play'},
+    {background: 'skyborn', category: 'trait', difficulty: 'hard', text: "J'Reen trait card in play"},
+    {background: 'star-alliance', category: 'trait', difficulty: 'easy', text: '3 Alien trait cards in play'},
+    {background: 'star-alliance', category: 'trait', difficulty: 'medium', text: '2 Krxix trait cards in play'},
+    {background: 'star-alliance', category: 'trait', difficulty: 'hard', text: 'Handuhan trait card in play'},
+    {background: 'unfathomable', category: 'trait', difficulty: 'easy', text: '3 Aquan trait cards in play'},
+    {background: 'unfathomable', category: 'trait', difficulty: 'medium', text: '2 Arm trait cards in play'},
+    {background: 'unfathomable', category: 'trait', difficulty: 'hard', text: '1 Priest trait card in play'},
+    {background: 'untamed', category: 'trait', difficulty: 'easy', text: '3 Witch trait cards in play'},
+    {background: 'untamed', category: 'trait', difficulty: 'medium', text: '2 Insect trait cards in play'},
+    {background: 'untamed', category: 'trait', difficulty: 'hard', text: 'Niffle trait card in play'},
+
+    {category: 'trait', difficulty: 'easy', text: '3 Item trait cards in play'},
+    {category: 'trait', difficulty: 'medium', text: '2 Location trait cards in play'},
+    {category: 'trait', difficulty: 'hard', text: '1 Curse trait card in play'},
+
+    {category: 'trait', difficulty: 'easy', text: '1 Dragon trait card in play'},
+    {category: 'trait', difficulty: 'easy', text: '1 Leviathan trait card in play'},
+    {category: 'trait', difficulty: 'easy', text: '1 Pilot trait card in play'},
+    {category: 'trait', difficulty: 'easy', text: '2 Ship trait cards in play'},
+    {category: 'trait', difficulty: 'easy', text: '4 Beast trait cards in play'},
+    {category: 'trait', difficulty: 'easy', text: '4 Human trait cards in play'},
+    {category: 'trait', difficulty: 'easy', text: '4 Mutant trait cards in play'},
+    {category: 'trait', difficulty: 'medium', text: '1 Leader trait card in play'},
+    {background: 'cool-moor', category: 'trait', difficulty: 'impossible', text: '1 Wolf trait card in play'},
+
+    {difficulty: 'easy', text: '6+ creatures with same trait in play'},
+  ],
+}
+
+export default data
