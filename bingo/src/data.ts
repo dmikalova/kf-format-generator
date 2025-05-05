@@ -13,29 +13,50 @@ const data: {
     suffixes: string[]
   }
 } = {
-  rules: `KeyForge Bingo - forge 3 rows, columns, or diagonals to unlock the power and knowledge within the Vaults!\n\n - Don't interrupt your game to mark off spots - wait until\n   after your match is finished or you might get DQed!\n - Consider the entire board state and both players - your \n   opponent's gameplay can help you to forge keys!\n - Do as much as you can - interpret the spots liberally!\n - Unofficial and not endorsed by GG - submit any issues\n   or suggestions to @dmikalova on Discord!`,
+  rules: `KeyForge Bingo - forge 3 rows, columns, or diagonals to unlock the power and knowledge hidden within the Vaults!\n\n - Don't interrupt your game to mark off spots - wait until\n   after your match is finished or you might get DQed!\n - Consider the entire board state and both players - your \n   opponent's gameplay can help you to forge keys!\n - Do as much as you can - interpret the spots liberally!\n - Unofficial and not endorsed by GG - submit any issues\n   or suggestions to @dmikalova on Discord!`,
   title: {
     prefixes: [
       '[REDACTED]',
+      'ascended',
       'bad',
       'black-market',
       'bootleg',
+      'called',
+      'clashed',
+      'collided',
+      'conspiracied',
       'contraband',
+      'discovered',
+      'exchanged',
       'extralegal',
       'felonious',
       'forbidden',
       'fraudulent',
+      'hunted',
       'illicit',
       'informal',
+      'keyrakened',
+      'mastered',
+      'measured',
+      'menageried',
       'misprinted',
+      'mutated',
       'non-authorized',
       'non-official',
       'non-sanctioned',
       'non-sanctumed',
       'noname',
       'prohibited',
+      'prophesied',
       'prophetic',
+      'radioactive',
+      'rejected',
+      'reminded',
+      'renegade',
+      'rogue',
+      'sacrosanctum',
       'shady',
+      'skiesed',
       'sneklifted',
       'sure gamble',
       'taboo',
@@ -44,6 +65,7 @@ const data: {
       'unapproved',
       'unauthorized',
       'uncertified',
+      'unchained',
       'unfathomable',
       'unlicensed',
       'unofficial',
@@ -63,13 +85,15 @@ const data: {
       'Bingioditus',
       'Bingle Bingobingo',
       'Bingo Ambassador',
+      'Bingo Bangbang',
       'Bingo Buggy',
       'Bingo Nithing',
       'Bingo the Fanatic',
+      'Bingo Monkey',
       'Bingo the Redeemed',
-      'Shard of Bingo',
       'Bingoed Auctioneer',
       'Bingohemoth',
+      'Bingoing Patrizate',
       'Bingomagus',
       'Bingor Flamewing',
       'Bingotwig',
@@ -100,6 +124,7 @@ const data: {
       'Red Bingodrake',
       'Sacro-Bingo',
       'Scoobingoo',
+      'Shard of Bingo',
       'Sir Bingo',
       'Skollenbingozz',
       'Skybingo Squadron',
@@ -108,7 +133,6 @@ const data: {
       'Ulfberht Bingo',
       'Yellow Bingodrake',
       'Yxilo Bingo',
-      'Bingoing Patrizate',
     ],
   },
   spots: [
@@ -122,12 +146,14 @@ const data: {
 
     // out of game
     {category: 'social', difficulty: 'easy', text: 'play a goofy giggly game'},
+    {category: 'social', difficulty: 'easy', text: 'play an intense sweaty game'},
     {category: 'social', difficulty: 'easy', text: 'play a TCO friend'},
     {category: 'social', difficulty: 'easy', text: 'play a good friend'},
     {category: 'social', difficulty: 'easy', text: 'play an intimidating opponent'},
     {category: 'social', difficulty: 'easy', text: 'teach someone a new trick'},
     {category: 'social', difficulty: 'easy', text: 'learn a new trick'},
-    {category: 'social', difficulty: 'easy', text: 'thank the GG crew'},
+    {category: 'social', difficulty: 'easy', text: 'learn a new rule'},
+    {category: 'social', difficulty: 'easy', text: 'thank your TOs'},
     {background: 'cool-moor', category: 'social', difficulty: 'medium', text: 'play a Moor Wolf Pack member'},
     {category: 'social', difficulty: 'easy', text: 'tell a friend about KeyForge'},
 
@@ -138,11 +164,19 @@ const data: {
     {category: 'perspective', difficulty: 'easy', text: 'wrong choice for the right reasons'},
     {category: 'perspective', difficulty: 'easy', text: 'right choice for the wrong reasons'},
     {category: 'perspective', difficulty: 'easy', text: 'discover a new to you combo'},
-    {category: 'perspective', difficulty: 'easy', text: 'you forgot this card existed'},
+    {category: 'perspective', difficulty: 'easy', text: 'forgot this card existed'},
+    {category: 'perspective', difficulty: 'easy', text: 'misremember a card'},
+    {category: 'perspective', difficulty: 'easy', text: 'misunderstand a card'},
+    {category: 'perspective', difficulty: 'easy', text: 'play a clean game'},
+    {category: 'perspective', difficulty: 'easy', text: "read your opponent's tells"},
     {category: 'perspective', difficulty: 'easy', text: 'go on an epic quest'},
+    {category: 'perspective', difficulty: 'easy', text: 'form a plan, execute on plan'},
     {category: 'perspective', difficulty: 'easy', text: 'funny deck name'},
     {category: 'perspective', difficulty: 'easy', text: 'call a random discard or purge'},
+    {category: 'perspective', difficulty: 'medium', text: 'get annoyed by your deck'},
     {difficulty: 'medium', text: 'win a tourney ie 2LO, side pod'},
+    {difficulty: 'medium', text: 'make a dis pun'},
+    {difficulty: 'medium', text: 'emphatic KEY FORGED!'},
 
     // matchup
     {category: 'decks', difficulty: 'easy', text: 'both decks have no matching houses'},
@@ -151,6 +185,7 @@ const data: {
     {category: 'time-rules', difficulty: 'easy', text: 'go to time'},
     {category: 'time-rules', difficulty: 'medium', text: 'lose by going to time'},
     {category: 'time-rules', difficulty: 'hard', text: 'extended tiebreaker - chains, creatures, or first player'},
+    {background: 'sanctum', difficulty: 'hard', text: 'Redemption vs Sanctum matchup'},
 
     // forging
     {background: 'key-forged', category: 'key-cheat', difficulty: 'easy', text: 'cheat a key'},
@@ -206,12 +241,15 @@ const data: {
     {background: 'aember', category: 'aember-loss', difficulty: 'medium', text: 'lose with 12+ Æmber'},
     {background: 'aember', category: 'aember-loss', difficulty: 'hard', text: 'lose with 18+ Æmber'},
     {background: 'aember', category: 'capture-steal', difficulty: 'easy', text: 'take or spend captured Æmber'},
-    {background: 'aember', category: 'capture-steal', difficulty: 'easy', text: 'capture 4 Æmber in one action'},
-    {background: 'aember', category: 'capture-steal', difficulty: 'medium', text: 'capture 6 Æmber in one action'},
-    {background: 'aember', category: 'capture-steal', difficulty: 'hard', text: 'capture 8 Æmber in one action'},
-    {background: 'aember', category: 'capture-steal', difficulty: 'easy', text: 'steal 4 Æmber in one turn'},
-    {background: 'aember', category: 'capture-steal', difficulty: 'medium', text: 'steal 6 Æmber in one turn'},
-    {background: 'aember', category: 'capture-steal', difficulty: 'hard', text: 'steal 8 Æmber in one turn'},
+    {background: 'aember', category: 'capture-steal', difficulty: 'easy', text: 'capture 4+ Æmber in one action'},
+    {background: 'aember', category: 'capture-steal', difficulty: 'medium', text: 'capture 6+ Æmber in one action'},
+    {background: 'aember', category: 'capture-steal', difficulty: 'hard', text: 'capture 8+ Æmber in one action'},
+    {background: 'aember', category: 'capture-steal', difficulty: 'easy', text: 'steal 4+ Æmber in one turn'},
+    {background: 'aember', category: 'capture-steal', difficulty: 'medium', text: 'steal 6+ Æmber in one turn'},
+    {background: 'aember', category: 'capture-steal', difficulty: 'hard', text: 'steal 8+ Æmber in one turn'},
+    {background: 'aember', category: 'aember-gen', difficulty: 'easy', text: 'gain 6+ Æmber in one turn'},
+    {background: 'aember', category: 'aember-gen', difficulty: 'medium', text: 'gain 9+ Æmber in one turn'},
+    {background: 'aember', category: 'aember-gen', difficulty: 'difficult', text: 'gain 12+ Æmber in one turn'},
 
     // deck
     {difficulty: 'easy', text: 'reveal or tokenize with empty deck'},
@@ -219,13 +257,23 @@ const data: {
     {category: 'shuffle count', difficulty: 'easy', text: 'shuffle deck 3 times'},
     {category: 'shuffle count', difficulty: 'medium', text: 'shuffle deck 4 times'},
     {category: 'shuffle count', difficulty: 'hard', text: 'shuffle deck 5 times'},
+    {difficulty: 'impossible', text: 'foreign language card'},
 
     // hand
-    {category: 'hand-mgmt', difficulty: 'easy', text: 'play no cards in a turn'},
-    {category: 'hand-mgmt', difficulty: 'easy', text: 'play whole hand in a turn'},
+    {category: 'discard-type', difficulty: 'easy', text: 'discard action'},
+    {category: 'discard-type', difficulty: 'easy', text: 'discard artifact'},
+    {category: 'discard-type', difficulty: 'easy', text: 'discard creature'},
+    {category: 'discard-type', difficulty: 'easy', text: 'discard upgrade'},
     {category: 'hand-mgmt', difficulty: 'easy', text: '2/2/2 hand 3 turns in a row'},
     {category: 'hand-mgmt', difficulty: 'easy', text: 'mulligan for a worse hand'},
+    {category: 'hand-mgmt', difficulty: 'easy', text: 'play no cards in a turn'},
+    {category: 'hand-mgmt', difficulty: 'easy', text: 'play whole hand in a turn'},
+    {category: 'hand-mgmt', difficulty: 'easy', text: 'return card to hand'},
     {category: 'hand-mgmt', difficulty: 'impossible', text: "discard opponent's hand"},
+
+    {category: 'draw-count', difficulty: 'easy', text: 'draw 2+ cards during turn'},
+    {category: 'draw-count', difficulty: 'medium', text: 'draw 3+ cards during turn'},
+    {category: 'draw-count', difficulty: 'hard', text: 'draw 4+ cards during turn'},
 
     // abilities
     {category: 'abilities', difficulty: 'medium', text: 'avoid a Destroyed: ability'},
@@ -238,14 +286,28 @@ const data: {
     {category: 'abilities', difficulty: 'impossible', text: 'Hazardous 4+ creature'},
     {category: 'abilities', difficulty: 'impossible', text: 'Assault 4+ creature'},
     {category: 'abilities', difficulty: 'hard', text: '6+ creatures with 2+ abilities'},
+    {category: 'abilities', difficulty: 'hard', text: 'creature(s) cannot be dealt damage'},
     {category: 'abilities', difficulty: 'impossible', text: 'creature with Invulnerable'},
+    {category: 'abilities', difficulty: 'impossible', text: 'graft card'},
+    {category: 'abilities', difficulty: 'medium', text: 'versatile card'},
+    {category: 'abilities', difficulty: 'hard', text: 'treachery card'},
 
     {difficulty: 'easy', text: 'accidentally fight into elusive'},
+    {difficulty: 'easy', text: 'intentionally fight into elusive once'},
     {difficulty: 'easy', text: "board wipe 6+ of your creatures for 3- of your opponent's"},
     {difficulty: 'easy', text: 'fight and die with 4+ creatures to take out 1 creature (can be multiple turns)'},
+    {difficulty: 'medium', text: 'game with no board wipes'},
+
+    {difficulty: 'hard', text: 'Æmber pun in card name'},
+    {difficulty: 'hard', text: 'Key or Forge pun in card name'},
+    {difficulty: 'medium', text: 'flavor text references another card'},
+    {difficulty: 'hard', text: 'blank text box'},
+    {difficulty: 'impossible', text: 'copy another card'},
 
     // zones
     {difficulty: 'hard', text: '3 extra out of play zones ie card under card'},
+    {difficulty: 'medium', text: 'shuffle or discard entire archive'},
+    {difficulty: 'impossible', text: 'return a card from purge'},
 
     {category: 'purged-count', difficulty: 'easy', text: '4+ purged cards'},
     {category: 'purged-count', difficulty: 'medium', text: '6+ purged cards'},
@@ -272,6 +334,9 @@ const data: {
       text: 'creatures with powers 1 to 5 in play',
     },
     {background: 'power', category: 'creature-power', difficulty: 'hard', text: 'creatures with powers 1 to 6 in play'},
+    {category: 'upgrade-count', difficulty: 'easy', text: 'card with 2+ upgrades'},
+    {category: 'upgrade-count', difficulty: 'medium', text: 'card with 3+ upgrades'},
+    {category: 'upgrade-count', difficulty: 'hard', text: 'card with 4+ upgrades'},
     {category: 'upgrade-count', difficulty: 'easy', text: '4+ upgrades in play'},
     {category: 'upgrade-count', difficulty: 'medium', text: '6+ upgrades in play'},
     {category: 'upgrade-count', difficulty: 'hard', text: '8+ upgrades in play'},
@@ -279,13 +344,23 @@ const data: {
     {category: 'token-creature-count', difficulty: 'medium', text: '12+ token creatures in play'},
     {category: 'token-creature-count', difficulty: 'hard', text: '18+ token creatures in play'},
 
+    {difficulty: 'impossible', text: 'destroy just the upgrade'},
+    {difficulty: 'impossible', text: 'flip a token creature'},
+
     // artifacts
     {category: 'artifacts', difficulty: 'easy', text: '6+ artifacts in play'},
     {category: 'artifacts', difficulty: 'medium', text: '8+ artifacts in play'},
     {category: 'artifacts', difficulty: 'hard', text: '10+ artifacts in play'},
-    {category: 'artifacts', difficulty: 'medium', text: 'creature as artifact'},
-    {category: 'artifacts', difficulty: 'hard', text: 'artifact as creature'},
     {category: 'artifacts', difficulty: 'easy', text: 'game warping artifact'},
+
+    {category: 'artifacts', difficulty: 'hard', text: 'overcome a curse'},
+    {category: 'artifacts', difficulty: 'hard', text: 'useless artifact'},
+
+    // types
+    {category: 'type-change', difficulty: 'hard', text: 'creature as upgrade'},
+    {category: 'type-change', difficulty: 'medium', text: 'creature as artifact'},
+    {category: 'type-change', difficulty: 'hard', text: 'artifact as creature'},
+    {category: 'type-change', difficulty: 'hard', text: 'action as upgrade'},
 
     // combos
     {category: 'c-c-combos', difficulty: 'impossible', text: 'infinite loop'},
@@ -295,11 +370,14 @@ const data: {
     {category: 'c-c-combos', difficulty: 'medium', text: 'randomly discard key card'},
     {category: 'c-c-combos', difficulty: 'easy', text: 'accidental board wipe'},
     {category: 'c-c-combos', difficulty: 'easy', text: 'plow through obvious trap ie redline'},
+    {category: 'c-c-combos', difficulty: 'easy', text: "neutralize opponent's trap"},
 
-    // adventures
+    // formats
+    {category: 'kf-adventure', difficulty: 'hard', text: 'play Vault Assault'},
     {category: 'kf-adventure', difficulty: 'hard', text: 'play a game with 3+ players'},
     {category: 'kf-adventure', difficulty: 'hard', text: 'play a KeyForge Adventure'},
     {category: 'kf-adventure', difficulty: 'impossible', text: 'gain stratoflight'},
+    {category: 'format', difficulty: 'impossible', text: 'play adaptive'},
 
     // sets
     {background: 'cota', category: 'set', difficulty: 'hard', text: 'Call of the Archons deck'},
@@ -321,8 +399,6 @@ const data: {
     {background: 'uc', category: 'set', difficulty: 'impossible', text: 'Unchained deck'},
     {background: 'mn', category: 'set', difficulty: 'impossible', text: 'Menagerie deck'},
 
-    {difficulty: 'hard', text: 'tide is raised'},
-
     // rarities
     {category: 'rarity', difficulty: 'easy', text: '4+ copies of a card'},
     {category: 'rarity', difficulty: 'easy', text: '4+ rares in a deck'},
@@ -334,6 +410,7 @@ const data: {
     {category: 'rarity', difficulty: 'medium', text: 'skybeast card'},
     {category: 'rarity', difficulty: 'medium', text: 'revenant card'},
     {category: 'rarity', difficulty: 'medium', text: 'elder card'},
+    {category: 'rarity', difficulty: 'impossible', text: 'evil twin card'},
 
     // houses
     {difficulty: 'easy', text: 'play or use cards from 2+ houses in a turn'},

@@ -1,3 +1,10 @@
+// TODO: refactor image generation
+// TODO: add CLI
+// TODO: add 1 night vs weekend mode
+// TODO: 1 night: only 1 medium and extra easy and half the hard spots
+// TODO: img2pdf half page and cpdf merge: cpdf -twoup-stack ./bingo-boards.pdf -o out.pdf
+// TODO: more traits - ie a and b class
+
 const spawn = require('cross-spawn')
 import fs from 'fs'
 import path from 'path'
@@ -9,7 +16,7 @@ const io = {stdio: ['inherit', 'inherit', 'inherit']}
 // prepare spots data
 let gen = false
 // gen = true
-const boardCount = 10
+const boardCount = 50
 const spots = data.spots.map((spot, i) => ({...spot, id: i.toString().padStart(4, '0')}))
 const squareSize = 512
 const margin = 25
@@ -113,7 +120,7 @@ function generateBoard(index: number) {
       row.push(randomSpotEasy)
 
       // Remove all spots with the same category
-      if (randomSpotEasy.category) {
+      if (randomSpotEasy && randomSpotEasy.category) {
         spotsCopy = spotsCopy.filter((spot) => spot.category !== randomSpotEasy.category)
       }
     }
@@ -127,7 +134,7 @@ function generateBoard(index: number) {
       row.push(randomSpotMedium)
 
       // Remove all spots with the same category
-      if (randomSpotMedium.category) {
+      if (randomSpotMedium && randomSpotMedium.category) {
         spotsCopy = spotsCopy.filter((spot) => spot.category !== randomSpotMedium.category)
       }
     }
@@ -142,8 +149,9 @@ function generateBoard(index: number) {
     const randomSpotHard = hardSpots.splice(randomIndexHard, 1)[0]
     spotsCopy.splice(spotsCopy.indexOf(randomSpotHard), 1) // Remove from original spots array
     row.push(randomSpotHard)
+
     // Remove all spots with the same category
-    if (randomSpotHard.category) {
+    if (randomSpotHard && randomSpotHard.category) {
       spotsCopy = spotsCopy.filter((spot) => spot.category !== randomSpotHard.category)
     }
 
@@ -367,18 +375,27 @@ function assembleCard(index: number) {
   args.push(...[`./cards/footer.png`])
   args.push(...[`./cards/rules.png`])
   args.push(...['-append'])
-  args.push(...[`./cards/board${index.toString().padStart(4, '0')}.png`])
+  args.push(...['-resize', `${cardSize / 3}`])
+  args.push(...[`./cards/board${index.toString().padStart(4, '0')}.jpg`])
   spawn.sync('magick', args, io)
 }
 
+// if (gen) {
 for (let i = 0; i < boardCount; i++) {
   assembleCard(i)
 }
+// }
 
 // convert to pdf
+const boardFiles = fs
+  .readdirSync(path.join(__dirname, '../', 'cards'))
+  .filter((file) => file.startsWith('board') && file.endsWith('.jpg'))
+  .map((file) => path.join(__dirname, '../', 'cards', file))
+
 args = []
-args.push(...['--output' './bingo-boards.pdf'])
-args.push(...['--page-size', 'Letter'])
-args.push(...['--border', '0.5in:0.5in'])
+args.push(...['--output', './bingo-boards.pdf'])
+args.push(...['--pagesize', 'Letter'])
+args.push(...['--border', '.25in:.25in'])
 args.push(...['--fit', 'into'])
-args.push(...[`./cards/board*.png`])
+args.push(...boardFiles)
+spawn.sync('img2pdf', args, io)
